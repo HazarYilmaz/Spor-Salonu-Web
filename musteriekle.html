@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Müşteri Ekleme Sayfası</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url(images/musteriarkaplan.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4CAF50;
+    }
+
+    /* Güncellenen stil */
+    .container h2 {
+      color: black;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"],
+    .form-group input[type="date"],
+    .form-group select {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input[type="text"]:focus,
+    .form-group input[type="email"]:focus,
+    .form-group input[type="password"]:focus,
+    .form-group input[type="date"]:focus,
+    .form-group select:focus {
+      border-color: #795548  ;
+    }
+
+    .form-group select {
+      height: 38px;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Güncellenen satır -->
+    <h2 style="color: black;">Müşteri Kayıt Formu</h2>
+    <form action="musteriekle.php" method="POST">
+      <div class="form-group">
+        <label>Adı:</label>
+        <input type="text" name="adi" required>
+      </div>
+      <div class="form-group">
+        <label>Soyadı:</label>
+        <input type="text" name="soyadi" required>
+      </div>
+      <div class="form-group">
+        <label>Şifre:</label>
+        <input type="password" name="sifre" required>
+      </div>
+      <div class="form-group">
+         <label>TC Kimlik:</label>
+        <input type="text" name="tc" id="tc-input" required>
+        <small id="tc-error" style="color: red; display: none;">TC Kimlik numarası 11 haneli olmalıdır.</small>
+      </div>
+      <div class="form-group">
+      <label>E-posta:</label>
+      <input type="email" name="email" id="email-input" required>
+      <small id="email-error" style="color: red; display: none;">Geçerli bir e-posta adresi giriniz.</small>
+      </div>
+      <div class="form-group">
+        <label>Telefon:</label>
+        <input type="text" name="tel" required>
+      </div>
+      <div class="form-group">
+        <label>Kayıt Tarihi:</label>
+        <input type="date" name="tarih" required>
+      </div>
+      <div class="form-group">
+        <label>Süre:</label>
+        <input type="text" name="sure" required>
+      </div>
+      <div class="form-group">
+        <label>Üyelik Türü:</label>
+        <select name="uyelik_turu" required>
+          <option value="">Seçiniz</option>
+          <option value="Standart">Standart</option>
+          <option value="Premium">Premium</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Durum:</label>
+        <select name="durum" required>
+          <option value="">Seçiniz</option>
+          <option value="Aktif">Aktif</option>
+          <option value="Pasif">Pasif</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Ücret:</label>
+        <input type="text" name="ucret" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" name="kaydet"value="Müşteri Ekle">
+      </div>
+    </form>
+     <!-- Tc 11 hane kontrol script -->
+    <script>
+  var tcInput = document.getElementById('tc-input');
+  var tcError = document.getElementById('tc-error');
+
+  tcInput.addEventListener('input', function() {
+    if (tcInput.value.length < 11) {
+      tcError.style.display = 'block';
+    } else {
+      tcError.style.display = 'none';
+    }
+  });
+</script>
+<!-- Email Doğrulama script -->
+<script>
+  var emailInput = document.getElementById('email-input');
+  var emailError = document.getElementById('email-error');
+
+  emailInput.addEventListener('input', function() {
+    if (!isValidEmail(emailInput.value)) {
+      emailError.style.display = 'block';
+    } else {
+      emailError.style.display = 'none';
+    }
+  });
+
+  function isValidEmail(email) {
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  }
+</script>
+
+
+  </div>
+</body>
+</html>

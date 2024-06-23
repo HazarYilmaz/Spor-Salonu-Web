@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Kullanıcı Bulunamadı</title>
+    <script>
+        function redirectToLogin() {
+            setTimeout(function () {
+                window.location.href = "musterigiris.php";
+            }, 5000); // 10 saniye bekletme süresi (ms cinsinden)
+        }
+    </script>
+</head>
+<body onload="redirectToLogin()">
+    <h1>Böyle bir kullanıcı bulunamadı!</h1>
+    <p>Lütfen tekrar giriş yapmak için 5 SANİYE bekleyin...</p>
+</body>
+</html>

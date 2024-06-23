@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ürün Ekleme Sayfası</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url(images/musteriarkaplan.jpg);
+      background-repeat: no-repeat;
+      background-size: flex;
+      background-position: center;
+    }
+  
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+  
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: black;
+    }
+  
+    .form-group {
+      margin-bottom: 20px;
+    }
+  
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+  
+    .form-group input[type="text"],
+    .form-group select {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+  
+    .form-group input[type="text"]:focus,
+    .form-group select:focus {
+      border-color: #795548  ;
+    }
+  
+    .form-group select {
+      height: 38px;
+    }
+  
+    .form-group input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .form-group input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ürün Kayıt Formu</h2>
+        <form action="urunekle.php" method="POST">
+          <div class="form-group">
+            <label>Ürün Adı:</label>
+            <input type="text" name="adi" required>
+          </div>
+          <div class="form-group">
+            <label>Miktar:</label>
+            <input type="text" name="miktar" required inputmode="numeric" pattern="[0-9]+" title="Sadece sayısal değerler giriniz">
+          </div>
+          <div class="form-group">
+            <label>Adet Alış Fiyatı:</label>
+            <input type="text" name="alis_fiyat" required inputmode="numeric" pattern="[0-9]+" title="Sadece sayısal değerler giriniz">
+          </div>
+          <div class="form-group">
+            <label>Adet Satış Fiyatı:</label>
+            <input type="text" name="satis_fiyat" required inputmode="numeric" pattern="[0-9]+" title="Sadece sayısal değerler giriniz">
+          </div>
+          <div class="form-group">
+            <input type="submit" name="kaydet" value="Ürün Ekle">
+          </div>
+        </form>
+      </div>
+</body>
+</html>
